@@ -6,6 +6,6 @@
 
 ## 데모 영상
 
-<img src="https://github.com/wngus606/Photorama_AaronExample/tree/master/images/demo.gif" width="300px"/>
+<img src="https://github.com/wngus606/Photorama_AaronExample/tree/master/images/photoramaDemo.gif" width="300px"/>
 
 
