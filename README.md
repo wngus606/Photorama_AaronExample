@@ -1,4 +1,4 @@
-# Photorama Aaron Hillegass Example
+# Photorama - Aaron Hillegass Example
 
 ## Data Flow
 
