@@ -4,8 +4,10 @@
 
 ![데이터흐름](./images/dataFlow.png)
 
-## Demo
+## Screenshot
 
-<img src="https://github.com/wngus606/Photorama_AaronExample/blob/master/images/photoramaDemo.gif" width="400px"/>
+![screenshot](./images/screenshot.png)
+
+# <img src="https://github.com/wngus606/Photorama_AaronExample/blob/master/images/photoramaDemo.gif" width="400px"/>
 
 

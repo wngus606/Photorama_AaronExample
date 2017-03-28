@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 enum ImageResult {
     case Success(UIImage)
@@ -25,14 +26,26 @@ class PhotoStore {
     
     func fetchRecentPhotos(completion: @escaping (PhotosResult) -> Void) {
         let url = FlickrAPI.recentPhotosURL()
-        let request = URLRequest(url: url)
-        let task = session.dataTask(with: request) { (data, response, error) in
-            
-            let result = self.processRecentPhotosRequest(data: data, error: error)
-            
-            completion(result)
-        }
-        task.resume()
+        // Alamofire
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)
+            .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
+                print("Progress: \(progress.fractionCompleted)")
+            }
+            .validate { request, response, data in
+                print("validate Success")
+                return .success
+            }.responseJSON { (respones) in
+                let result = self.processRecentPhotosRequest(data: respones.data, error: respones.error)
+                completion(result)
+        }        
+//        let request = URLRequest(url: url)
+//        let task = session.dataTask(with: request) { (data, response, error) in
+//            
+//            let result = self.processRecentPhotosRequest(data: data, error: error)
+//            
+//            completion(result)
+//        }
+//        task.resume()
     }
     
     func processRecentPhotosRequest(data: Data?, error: Error?) -> PhotosResult {
