@@ -4,7 +4,4 @@
 
 ![데이터흐름](./images/dataFlow.png)
 
-## Screenshot
-
-![screenshot](./images/screenshot.PNG)
 
