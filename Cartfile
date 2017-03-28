@@ -1,0 +1,7 @@
+# Alamofire
+
+github "Alamofire/Alamofire" ~> 4.4
+
+# SwiftyJSON
+
+github "SwiftyJSON/SwiftyJSON"
