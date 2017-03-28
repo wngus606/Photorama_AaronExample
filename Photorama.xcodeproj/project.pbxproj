@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA065B221E8A3336008339DF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA065B201E8A3336008339DF /* Alamofire.framework */; };
+		AA065B231E8A3336008339DF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA065B211E8A3336008339DF /* SwiftyJSON.framework */; };
 		AA7D51191E88C071002818C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7D51181E88C071002818C9 /* AppDelegate.swift */; };
 		AA7D511E1E88C071002818C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA7D511C1E88C071002818C9 /* Main.storyboard */; };
 		AA7D51201E88C071002818C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA7D511F1E88C071002818C9 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA065B201E8A3336008339DF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		AA065B211E8A3336008339DF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		AA7D51151E88C071002818C9 /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7D51181E88C071002818C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA7D511D1E88C071002818C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,17 +45,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA065B221E8A3336008339DF /* Alamofire.framework in Frameworks */,
+				AA065B231E8A3336008339DF /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA065B1F1E8A3335008339DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA065B201E8A3336008339DF /* Alamofire.framework */,
+				AA065B211E8A3336008339DF /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AA7D510C1E88C071002818C9 = {
 			isa = PBXGroup;
 			children = (
 				AA7D51171E88C071002818C9 /* Photorama */,
 				AA7D51161E88C071002818C9 /* Products */,
+				AA065B1F1E8A3335008339DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +108,7 @@
 				AA7D51111E88C071002818C9 /* Sources */,
 				AA7D51121E88C071002818C9 /* Frameworks */,
 				AA7D51131E88C071002818C9 /* Resources */,
+				AA065B241E8A33A0008339DF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -149,6 +166,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA065B241E8A33A0008339DF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AA7D51111E88C071002818C9 /* Sources */ = {
@@ -286,6 +321,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = X3VD3468HW;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Photorama/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.seoju.Photorama;
@@ -299,6 +338,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = X3VD3468HW;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Photorama/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.seoju.Photorama;
