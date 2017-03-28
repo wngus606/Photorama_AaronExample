@@ -2,7 +2,10 @@
 
 ## 사용방법
 
-1. [Carthage](https://github.com/Carthage/Carthage#installing-carthage) 설치
+1. [Carthage](https://github.com/Carthage/Carthage#installing-carthage) 설치:
+
+		$ brew update
+		$ brew install carthage
 
 2. 해당 프로젝트 경로에서:
 		
