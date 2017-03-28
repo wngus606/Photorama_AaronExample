@@ -20,24 +20,25 @@ enum PhotoError: Error {
 
 class PhotoStore {
     
-    let session: URLSession = {
-        return URLSession(configuration: URLSessionConfiguration.default)
-    }()
+    // 기존 방식
+//    let session: URLSession = {
+//        return URLSession(configuration: URLSessionConfiguration.default)
+//    }()
     
     func fetchRecentPhotos(completion: @escaping (PhotosResult) -> Void) {
         let url = FlickrAPI.recentPhotosURL()
         // Alamofire
-        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)
-            .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                print("Progress: \(progress.fractionCompleted)")
-            }
-            .validate { request, response, data in
-                print("validate Success")
-                return .success
-            }.responseJSON { (respones) in
-                let result = self.processRecentPhotosRequest(data: respones.data, error: respones.error)
-                completion(result)
-        }        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).downloadProgress(queue: DispatchQueue.global(qos: .utility), closure: { (progress) in
+//            print("Progress: \(progress.fractionCompleted)")
+        }).validate({ (request, response, data) -> Request.ValidationResult in
+            print("fetchRecentPhotos Success")
+            return .success
+        }).responseJSON(completionHandler: { (respones) in
+            let result = self.processRecentPhotosRequest(data: respones.data, error: respones.error)
+            completion(result)
+        })
+        
+        // 기존 방식
 //        let request = URLRequest(url: url)
 //        let task = session.dataTask(with: request) { (data, response, error) in
 //            
@@ -65,17 +66,30 @@ class PhotoStore {
         }
         
         let photoURL = photo.remoteURL
-        let request = URLRequest(url: photoURL)
         
-        let task = session.dataTask(with: request) { (data, respons, error) in
-            let result = self.processImageRequest(data: data, error: error)
-            
+        // Alamofire
+        Alamofire.request(photoURL, method: .get).downloadProgress(queue: DispatchQueue.global(qos: .utility), closure: { (progress) in
+//            print("Progress: \(progress.fractionCompleted)")
+        }).response { (response) in
+            let result = self.processImageRequest(data: response.data, error: response.error)
             if case let .Success(image) = result {
                 photo.image = image
             }
             completion(result)
         }
-        task.resume()
+        
+        // 기존 방식
+//        let request = URLRequest(url: photoURL)
+//        
+//        let task = session.dataTask(with: request) { (data, respons, error) in
+//            let result = self.processImageRequest(data: data, error: error)
+//            
+//            if case let .Success(image) = result {
+//                photo.image = image
+//            }
+//            completion(result)
+//        }
+//        task.resume()
     }
     
     func processImageRequest(data: Data?, error: Error?) -> ImageResult {
