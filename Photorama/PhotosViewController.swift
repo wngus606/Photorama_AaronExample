@@ -70,9 +70,21 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // MARK: UICollectionView flow layout delegate 메서드
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemLength: CGFloat = (view.frame.size.width - 5 * 2)/3
-        let itemSize = CGSize.init(width: itemLength, height: itemLength)
-        return itemSize
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let cellSquareSize: CGFloat = screenWidth - 20
+        return CGSize(width: cellSquareSize, height: cellSquareSize)
     }
     
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+//    }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 10.0
+//    }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 10.0
+//    }
 }
