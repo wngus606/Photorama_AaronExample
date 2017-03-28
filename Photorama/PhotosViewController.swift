@@ -70,9 +70,7 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // MARK: UICollectionView flow layout delegate 메서드
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let cellSquareSize: CGFloat = screenWidth - 20
+        let cellSquareSize: CGFloat = (collectionView.bounds.width - 5 * 2) / 2
         return CGSize(width: cellSquareSize, height: cellSquareSize)
     }
     
