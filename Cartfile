@@ -1,7 +1,8 @@
 # Alamofire
-
 github "Alamofire/Alamofire" ~> 4.4
 
 # SwiftyJSON
-
 github "SwiftyJSON/SwiftyJSON"
+
+# Kingfisher
+github "onevcat/Kingfisher" ~> 3.0

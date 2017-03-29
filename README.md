@@ -6,7 +6,7 @@
 	- [x] [Alamofire](https://github.com/Alamofire/Alamofire)
 	- [x] [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 	- [ ] [SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD)
-	- [ ] [Kingfisher](https://github.com/onevcat/Kingfisher)
+	- [x] [Kingfisher](https://github.com/onevcat/Kingfisher)
 	- [ ] [Realm](https://github.com/realm/realm-cocoa)
 	- [ ] [Hero](https://github.com/lkzhao/Hero)
 
